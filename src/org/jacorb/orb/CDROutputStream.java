@@ -47,7 +47,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id$
+ * @version $Id: CDROutputStream.java,v 1.2 2009-05-07 23:38:31 Terry Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -186,7 +186,7 @@ public class CDROutputStream
     public void configure(Configuration configuration)
     {
        codesetEnabled  =
-            configuration.getAttribute("jacorb.codeset","on").equals("on");
+            configuration.getAttribute("jacorb.codeset","off").equals("on");
 
         useBOM =
             configuration.getAttribute("jacorb.use_bom","off").equals("on");

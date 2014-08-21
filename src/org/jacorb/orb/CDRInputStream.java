@@ -50,7 +50,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id$
+ * $Id: CDRInputStream.java,v 1.2 2009-05-07 23:38:31 Terry Exp $
  */
 
 public class CDRInputStream
@@ -240,7 +240,7 @@ public class CDRInputStream
             jacorbConfig.getNamedLogger("jacorb.orb.cdr");
 
         codesetEnabled  =
-            configuration.getAttribute("jacorb.codeset","on").equals("on");
+            configuration.getAttribute("jacorb.codeset","off").equals("on");
         cometInteropFix =
             configuration.getAttribute("jacorb.interop.comet","off").equals("on");
         laxBooleanEncoding =

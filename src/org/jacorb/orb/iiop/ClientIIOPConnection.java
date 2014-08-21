@@ -55,7 +55,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id$
+ * @version $Id: ClientIIOPConnection.java,v 1.2 2009-05-07 23:38:31 Terry Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -506,9 +506,16 @@ public class ClientIIOPConnection
         if( doSupportSSL )
         {
             client_required =
-                configuration.getAttributeAsInteger("jacorb.security.ssl.client.required_options", 16);
+                //configuration.getAttributeAsInteger("jacorb.security.ssl.client.required_options", 16);
+            	Integer.parseInt(
+                        configuration.getAttribute("jacorb.security.ssl.client.required_options","0"),
+                        16);
             client_supported =
-                configuration.getAttributeAsInteger("jacorb.security.ssl.client.supported_options",16);
+                //configuration.getAttributeAsInteger("jacorb.security.ssl.client.supported_options",16);
+            
+            	Integer.parseInt(
+                    configuration.getAttribute("jacorb.security.ssl.client.supported_options","0"),
+                    16);            
         }
 
         if( tls != null && // server knows about ssl...
