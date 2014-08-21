@@ -40,7 +40,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id$
+ * @version $Id: ServerRequestListener.java,v 1.2 2009-05-07 23:38:31 Terry Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable
@@ -72,7 +72,12 @@ public class ServerRequestListener
         if( supportSSL )
         {
             int required =
-                configuration.getAttributeAsInteger("jacorb.security.ssl.server.required_options",16);
+                //configuration.getAttributeAsInteger("jacorb.security.ssl.server.required_options",16);
+            	//Terry: fix bug - it is a hex
+            	Integer.parseInt(
+                        configuration.getAttribute("jacorb.security.ssl.server.required_options","0"),
+                        16);                 	
+            	
 
             //if we require EstablishTrustInTarget or
             //EstablishTrustInClient, SSL must be used.
